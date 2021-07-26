@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\StudentManagementController;
+use App\Http\Controllers\EmployeesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,26 +18,17 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('student', [StudentManagementController::class, 'index'])->name('student.view');
+Route::get('employee', [EmployeesController::class, 'index'])->name('employee.view');
 
-Route::get('add-student', [StudentManagementController::class, 'create'])->name('student.create');
+Route::get('add-employee', [EmployeesController::class, 'create'])->name('employee.create');
 
-Route::post('add-student', [StudentManagementController::class, 'store'])->name('student.store');
+Route::post('add-employee', [EmployeesController::class, 'store'])->name('employee.store');
 
-Route::get('edit-student/{id}', [StudentManagementController::class, 'edit'])->name('student.edit');
+Route::post('list-employee', [EmployeesController::class, 'listEmployees'])->name('employee.list');
 
-Route::post('update-student/{id}', [StudentManagementController::class, 'update'])->name('student.update');
+Route::get('edit-employee/{id}', [EmployeesController::class, 'edit'])->name('employee.edit');
 
-Route::get('delet-student/{id}', [StudentManagementController::class, 'destroy'])->name('student.delete');
+Route::post('update-employee/{id}', [EmployeesController::class, 'update'])->name('employee.update');
 
-Route::get('add-marks', [StudentManagementController::class, 'addMarks'])->name('marks.create');
+Route::get('delet-employee/{id}', [EmployeesController::class, 'destroy'])->name('employee.delete');
 
-Route::post('add-marks', [StudentManagementController::class, 'storeMarks'])->name('marks.store');
-
-Route::get('list-marks', [StudentManagementController::class, 'listMarks'])->name('marks.list');
-
-Route::get('edit-mark/{id}', [StudentManagementController::class, 'editMark'])->name('mark.edit');
-
-Route::post('update-mark/{id}', [StudentManagementController::class, 'updateMark'])->name('mark.update');
-
-Route::get('delet-mark/{id}', [StudentManagementController::class, 'markDelete'])->name('mark.delete');
